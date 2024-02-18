@@ -1,0 +1,40 @@
+#include <iostream>
+#include <cmath>
+
+/*/
+int main(void)
+{
+    double x= M_PI;
+    std::cout <<"El Valor de pi es " << x << "\n";
+    return 0;
+}
+/*/
+
+double pi_aprox (int n);
+int main(void)
+{
+    std::cout.precision(16);
+    std::cout.setf(std::ios::scientific);
+    
+    for (int n=1; n<=20; n++)
+   {
+    std::cout << pi_aprox (n)<< "\n";
+   }
+   
+    return 0;
+}
+double pi_aprox (int n)
+{
+    double suma= 0;
+    double r=100000;
+    double s=0;
+    double elevado=std::pow (16,r);
+    for (int r=0;r<n+1;r++)
+    {
+    
+    suma=((1/(elevado))*((4/(8*r+1))-(2/(8*r+4))-(1/(8*r+5))-(1/(8*r+6))));
+
+    s=s+suma;
+    }
+    return s;
+}
